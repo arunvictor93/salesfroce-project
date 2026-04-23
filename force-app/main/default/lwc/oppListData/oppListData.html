@@ -1,0 +1,23 @@
+<template>
+<lightning-quick-action-panel header="Pending Opportunities">
+    
+    <template if:true={accObj}>
+            
+        <lightning-datatable key-field="Id" 
+        data={accObj} 
+        columns={columns} 
+        onsave={saveHandleAction}
+        draft-values={fldsItemValues} 
+        oncellchange={cellchallange}
+        show-row-number-column>
+        </lightning-datatable>
+        <br/>
+    <div slot="footer">
+        <lightning-button variant="success" label="Approve" onclick={approveData}></lightning-button>
+        <lightning-button variant="destructive" label="Reject" onclick={openModal}></lightning-button>
+    </div>
+        
+    </template>
+    
+</lightning-quick-action-panel>
+</template>

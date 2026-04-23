@@ -1,0 +1,39 @@
+<aura:component controller="BoatSearchFormCtr" implements="force:appHostable,flexipage:availableForAllPageTypes">
+     <!--<aura:handler name="formsubmit"
+                  event="c:FormSubmit"
+                  action="{!c.onFormSubmit}"
+                  phase="capture"/>-->
+    <aura:registerEvent name="formsubmit" type="c:FormSubmit"/>
+    <aura:attribute access="private" name="boatTypeList" type="BoatType__c[]" default="[]" />
+    <aura:attribute name="selectedBoatType" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="renderNew" type="Boolean" default="true" />
+    
+    
+    <lightning:layout horizontalAlign="center" verticalAlign="center">
+        <lightning:layoutItem padding="horizontal-medium">
+            <lightning:select label="" value="{!v.selectedBoatType}">
+                <option value="">All Types</option>
+                <aura:iteration items="{!v.boatTypeList}" var="boatType">
+                    <option value="{!boatType.Id}">{!boatType.Name}</option>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <div class="slds-button-group" role="group">
+                <lightning:button class="slds-button" variant="brand" label="Search" onclick="{!c.onFormSubmit}"/>
+                
+                <!--
+            The form’s controller checks whether the event.force:createRecord event
+            is supported by a standalone app and either shows or hides the New button
+            according to best practices.
+            -->
+                <p> jbadfhj</p>
+                <aura:if isTrue="{!v.renderNew}">
+                    <lightning:button class="slds-button" variant="neutral" label="New" onclick="{!c.createBoat}"/>
+                </aura:if>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>    
+    
+</aura:component>

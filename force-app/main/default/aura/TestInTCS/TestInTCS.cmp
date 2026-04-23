@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global" controller="AttributeTypes">
+    <aura:attribute name="textVal" type="String" default="Hiiii This is my first aura component"/>
+    <aura:attribute name="favoriteColors" type="String[]" default="cyan, yellow, magenta"/>
+    <div>{!v.textVal}</div>
+    <lightning:button variant="brand" label="Submit" title="Brand action" onclick="{! c.handleClick }" />
+    <lightning:button variant="brand" label="Test2" title="Brand action" onclick="{! c.handleClick2 }" />
+    
+    <aura:iteration items="{!v.favoriteColors}" var="s">
+        {!s}
+    </aura:iteration>
+    {!v.favoriteColors}
+    
+    <lightning:select aura:id="select" name="select" label="Select a pie" onchange="{! c.onChange }">
+        <option value="">choose one...</option>
+        <option value="apple">apple</option>
+        <option value="pumpkin">pumpkin</option>
+        <option value="cherry">cherry</option>
+        <option value="blueberry">blueberry</option>
+        <option value="pickle">pickle</option>
+    </lightning:select>
+    
+</aura:component>

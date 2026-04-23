@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="lstProductData" type="Product2[]"/>
+    sddddvff
+</aura:component>
