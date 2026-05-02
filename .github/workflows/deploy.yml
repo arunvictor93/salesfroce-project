@@ -19,9 +19,8 @@ jobs:
 
       - name: Authenticate to Salesforce
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" > sfdx_auth_url.txt
-          sf org login sfdx-url -f sfdx_auth_url.txt -a SFDCADDA123
+          echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --alias SFDCADDA123 --set-default --sfdx-url-stdin
 
       - name: Deploy to Salesforce
         run: |
-          sf project deploy start --source-dir force-app --target-org SFDCADDA123
+          sf project deploy start --target-org SFDCADDA123 --wait 30
