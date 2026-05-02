@@ -13,9 +13,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Salesforce CLI
+      - name: Install Salesforce CLI with NPM
         run: |
-          npm install sfdx-cli --global
+          npm install @salesforce/cli --global
 
       - name: Authenticate to Salesforce
         run: |
